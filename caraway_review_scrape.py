@@ -18,8 +18,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# import numpy as np
-
 os.chdir('/Users/jack/Documents/xavi_scraping/')
 path_to_driver_1 = '/Users/jack/Documents/xavi_scraping/chromedriver_86'
 
@@ -116,17 +114,14 @@ while True:
             WebDriverWait(driver, 10).until(
                 EC.visibility_of_element_located((By.XPATH, "//a[@class='yotpo-page-element yotpo-icon yotpo-icon-right-arrow yotpo_next ']")))
             driver.find_element_by_xpath("//a[@class='yotpo-page-element yotpo-icon yotpo-icon-right-arrow yotpo_next ']").click()
-            # time.sleep(2)
         except:
             # exits out of pop up, pop up only occurs if user puts cursor on browser
             WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, "//div[@class='email-capture__popup-close popup-close js-offer-close ac-offer-close']"))).click()
             # then clicks next page
             driver.find_element_by_xpath("//a[@class='yotpo-page-element yotpo-icon yotpo-icon-right-arrow yotpo_next ']").click()
-            # time.sleep(2)
             
         time.sleep(10)
-        # time.sleep(np.random.uniform(10.0, 11.0))
     
     # When all reviews are in the dictionary, the while(True) loop breaks
     else:
